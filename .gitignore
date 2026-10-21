@@ -1,0 +1,22 @@
+# 编译产物：javac -d 生成的 out/ 与零散 .class 一律不入库
+*.class
+out/
+build/
+target/
+
+# web-frontend/webmail 是独立 git 仓库，不属于本库
+web-frontend/
+
+# IDE / 编辑器配置
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时验证目录
+.verify_build/

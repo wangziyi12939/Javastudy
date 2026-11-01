@@ -1,0 +1,33 @@
+name: 学习问题
+description: 针对某个练习或 Java 概念提出问题
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: 相关课次或文件
+      placeholder: lesson07/Factorial.java
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: 你的问题
+      description: 写清已经理解到哪一步，以及具体卡在哪里
+    validations:
+      required: true
+  - type: textarea
+    id: attempt
+    attributes:
+      label: 已尝试的做法
+      description: 粘贴相关代码、运行结果或自己的推理
+    validations:
+      required: false
+  - type: textarea
+    id: expected-help
+    attributes:
+      label: 希望得到什么帮助
+      description: 例如解释执行顺序、定位报错原因、检查思路
+    validations:
+      required: false

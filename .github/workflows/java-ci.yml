@@ -1,0 +1,64 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: java-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile:
+    name: compile
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "25"
+
+      - name: Compile exercises
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          compile() {
+            local name="$1"
+            shift
+            echo "::group::Compiling ${name}"
+            javac -encoding UTF-8 -d "out/${name}" "$@"
+            echo "::endgroup::"
+          }
+
+          # lesson01-lesson04 使用 package，可整课编译
+          compile lesson01 lesson01/*.java
+          compile lesson02 lesson02/*.java
+          compile lesson03 lesson03/*.java
+          compile lesson04 lesson04/*.java
+
+          # lesson06 起使用默认包，按练习分组隔离输出
+          compile lesson06 lesson06/*.java
+          compile lesson07-main lesson07/Main.java lesson07/Calculator.java
+          compile lesson07-factorial lesson07/Factorial.java
+          compile lesson07-sum-compare lesson07/SumCompare.java
+          compile lesson08-student lesson08/Main.java lesson08/Student.java lesson08/Test.java
+          compile lesson08-all-in-one lesson08/AllInOne.java
+          compile lesson08-counter lesson08/CounterDemo.java
+          compile lesson08-report lesson08/Report.java
+          compile lesson08-shop lesson08/Shop.java
+          compile lesson08-three-students lesson08/ThreeStudents.java

@@ -7,8 +7,8 @@ class Cart {
         count = count + 1;
     }
 
-    int avg() {
-        return sum / count;
+    double avg() {
+        return (double) sum / count;
     }
 }
 

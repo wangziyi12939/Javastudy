@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 学习讨论
+    url: https://github.com/wangziyi12939/Javastudy/discussions
+    about: 开放式问题、学习方法和仓库范围外的讨论请进入 Discussions
+  - name: 举报骚扰或滥用
+    url: https://github.com/contact/report-abuse
+    about: 涉及骚扰、威胁或隐私泄露时，请通过 GitHub 官方渠道私下提交

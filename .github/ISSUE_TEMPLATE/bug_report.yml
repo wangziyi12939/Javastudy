@@ -1,0 +1,61 @@
+name: 缺陷报告
+description: 报告代码、文档或工作流中的可复现问题
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。提交前请先搜索现有 Issue，避免重复。
+        请勿在公开 Issue 中填写密码、密钥、邮箱等敏感信息。
+  - type: input
+    id: affected-file
+    attributes:
+      label: 涉及文件
+      description: 填写仓库内的相对路径，例如 lesson08/Shop.java
+      placeholder: lesson08/Shop.java
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 运行环境
+      options:
+        - Windows 11
+        - macOS
+        - Linux
+        - GitHub Actions
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 按顺序写出能够稳定复现问题的命令或操作
+      placeholder: |
+        1. 执行 javac ...
+        2. 执行 java ...
+        3. 观察到 ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      description: 请粘贴完整报错，不要只写“运行失败”
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 补充信息
+      description: 可选。说明最近改动、尝试过的解决办法等
+    validations:
+      required: false

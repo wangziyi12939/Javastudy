@@ -62,3 +62,5 @@ jobs:
           compile lesson08-report lesson08/Report.java
           compile lesson08-shop lesson08/Shop.java
           compile lesson08-three-students lesson08/ThreeStudents.java
+          compile lesson09-account lesson09/Main.java lesson09/Account.java
+          compile lesson10-polymorphism lesson10/Main.java lesson10/Animal.java lesson10/Dog.java lesson10/Cat.java

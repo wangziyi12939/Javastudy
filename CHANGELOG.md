@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-06
+
+### 变更
+
+- 全部课次统一声明与目录同名的 `package`，`lesson06` 至 `lesson10` 补上包声明。编译与运行命令统一为 `javac -encoding UTF-8 -d out 课次/*.java` 与 `java -cp out 包名.类名`
+- `lesson08/AllInOne.java` 的演示类改名为 `DemoStudent`，`lesson08/ThreeStudents.java` 改名为 `StudentInfo`，消除同包内 `Student` 三重定义
+- Java CI 由 14 个分组编译简化为逐课整课编译，不再依赖分组输出目录隔离同名类
+- 运行命令统一追加 `-Dstdout.encoding=UTF-8`，修正 Git Bash 与 VS Code 集成终端的中文输出乱码
+
+### 修复
+
+- README 环境准备中的 JDK 版本由 25.0.4.1 更正为 25.0.5
+- 旧版 README 称「`lesson06` 起使用默认包、不能一次性编译」，随包结构统一失效，已删去
+
 ## [0.4.0] - 2026-11-01
 
 ### 新增

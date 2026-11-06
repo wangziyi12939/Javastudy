@@ -1,3 +1,5 @@
+package lesson10;
+
 public class Main {
     public static void main(String[] args) {
         // 一、继承：子类直接用父类的东西。

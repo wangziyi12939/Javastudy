@@ -1,3 +1,5 @@
+package lesson08;
+
 public class Test {
     public static void main(String[] args) {
         Student s3 = new Student();

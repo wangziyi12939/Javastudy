@@ -1,3 +1,5 @@
+package lesson10;
+
 public class Cat extends Animal {
     // Cat 也是 Animal 的一种，同样继承 name 和 eat()。
 

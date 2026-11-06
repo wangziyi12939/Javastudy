@@ -1,3 +1,5 @@
+package lesson08;
+
 public class Student {
     String name;  
     int age;

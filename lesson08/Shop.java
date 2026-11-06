@@ -1,3 +1,5 @@
+package lesson08;
+
 class Cart {
     int sum = 0;
     int count = 0;

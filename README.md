@@ -30,45 +30,51 @@ Java 学习代码库，零基础起步，目标为 2027 年下半年软考高级
 
 | 组件 | 版本 | 用途 |
 | --- | --- | --- |
-| JDK | Temurin 25.0.4.1 LTS | 编译与运行 |
+| JDK | Temurin 25.0.5 LTS | 编译与运行 |
 | 编辑器 | VS Code + Java 扩展包 | 开发与调试 |
 
-安装完成后执行 `java -version`，输出中应包含 `openjdk version "25.0.4.1"`。源文件统一采用 UTF-8 编码，不含 BOM。
+安装完成后执行 `java -version`，输出中应包含 `openjdk version "25.0.5"`。源文件统一采用 UTF-8 编码，不含 BOM。
 
 ## 用法
 
-`lesson01` 至 `lesson04` 的源文件声明了 `package`，编译时须以 `-d` 指定输出目录，运行时以「包名.类名」指定主类：
+所有源文件均声明与所在目录同名的 `package`（`lesson01` 至 `lesson10`）。编译时以 `-d out` 指定输出根目录，运行时以「包名.类名」指定主类：
 
 ```bash
-javac -encoding UTF-8 -d out/lesson02 lesson02/ScoreLevel.java
-java -cp out/lesson02 lesson02.ScoreLevel
+javac -encoding UTF-8 -d out lesson10/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson10.Main
 ```
 
-`lesson06` 至 `lesson10` 的源文件未声明 `package`，按练习分组编译即可。例如：
+各课次包名不同，同名类（如 `Main`）互不干扰，因此可一次编译全部源码：
 
 ```bash
-# lesson06：数组练习
-javac -encoding UTF-8 -d out/lesson06 lesson06/SeatFill.java
-java -cp out/lesson06 SeatFill
+javac -encoding UTF-8 -d out lesson*/*.java
+```
 
-# lesson07：方法调用与重载
-javac -encoding UTF-8 -d out/lesson07-main lesson07/Main.java lesson07/Calculator.java
-java -cp out/lesson07-main Main
+逐课编译与运行：
+
+```bash
+# lesson06：数组收尾（动态二维数组、成绩统计）
+javac -encoding UTF-8 -d out lesson06/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson06.SeatFill
+
+# lesson07：方法、重载与递归
+javac -encoding UTF-8 -d out lesson07/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson07.Main
 
 # lesson08：类与对象
-javac -encoding UTF-8 -d out/lesson08-main lesson08/Main.java lesson08/Student.java lesson08/Test.java
-java -cp out/lesson08-main Main
+javac -encoding UTF-8 -d out lesson08/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson08.Main
 
 # lesson09：封装
-javac -encoding UTF-8 -d out/lesson09-main lesson09/Main.java lesson09/Account.java
-java -cp out/lesson09-main Main
+javac -encoding UTF-8 -d out lesson09/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson09.Main
 
 # lesson10：继承与多态
-javac -encoding UTF-8 -d out/lesson10-main lesson10/Main.java lesson10/Animal.java lesson10/Dog.java lesson10/Cat.java
-java -cp out/lesson10-main Main
+javac -encoding UTF-8 -d out lesson10/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson10.Main
 ```
 
-不同练习中存在同名类（如 `Main`、`Student`），因此**不能把所有源文件一次性编译到同一目录**。CI 将每个练习组编译到独立输出目录，完整分组见 [`.github/workflows/java-ci.yml`](.github/workflows/java-ci.yml)。
+CI 逐课编译，完整步骤见 [`.github/workflows/java-ci.yml`](.github/workflows/java-ci.yml)。
 
 `SeatFill` 输出 5 行 4 列的座位号：
 
@@ -80,7 +86,7 @@ java -cp out/lesson10-main Main
 17 18 19 20
 ```
 
-Windows 控制台输出中文出现乱码时，先执行 `chcp 65001` 将代码页切换为 UTF-8。VS Code 内置终端通常无需此操作。
+命令中的 `-Dstdout.encoding=UTF-8` 不可省略。JDK 25 在 Windows 下默认以系统代码页（GBK）向控制台输出，而 Git Bash 与 VS Code 集成终端按 UTF-8 解码，缺此参数时中文输出为乱码。改用 cmd 或 PowerShell 且终端本身为 GBK 时，去掉该参数即可。
 
 `out/` 已列入 `.gitignore`，编译产物不入库。
 
@@ -124,11 +130,11 @@ Javastudy/
 | `lesson08` | Student | 学生类，含属性、两个构造器与自我介绍方法 |
 | `lesson08` | Main | 创建两个学生对象并调用方法 |
 | `lesson08` | Test | 使用无参构造器创建学生并赋值 |
-| `lesson08` | AllInOne | 单文件展示类、成员变量、构造器、方法与入口 |
+| `lesson08` | AllInOne | 单文件展示类、成员变量、构造器、方法与入口，演示类名 `DemoStudent` |
 | `lesson08` | CounterDemo | 以两个对象演示实例状态的独立性 |
 | `lesson08` | Report | 以对象保存总分与次数并计算平均分 |
 | `lesson08` | Shop | 以购物车对象演示状态累计与浮点平均值 |
-| `lesson08` | ThreeStudents | 创建三个学生对象并修改其中一个的属性 |
+| `lesson08` | ThreeStudents | 创建三个学生对象并修改其中一个的属性，演示类名 `StudentInfo` |
 | `lesson09` | Account | 账户类，以 `private` + getter/setter 封装，`deposit`/`withdraw` 各带两道校验 |
 | `lesson09` | Main | 创建两个账户对象，验证多对象互不影响与两道取款校验 |
 | `lesson10` | Animal | 动物父类，持有 `name` 与共性行为 `eat()` |
@@ -139,6 +145,7 @@ Javastudy/
 ## 编码约定
 
 - 源文件名与 `public` 类名保持一致，每个源文件只包含一个 `public class`。
+- 源文件声明与所在目录同名的 `package`，同一课次共用一个包，非 `public` 类名在包内唯一。
 - 编译产物（`*.class`、`out/`）不入库。
 - 提交说明采用「目录 + 动作 + 内容」格式，例如：
   - `lesson04 新增 ArraySeat.java（二维数组座位表）`

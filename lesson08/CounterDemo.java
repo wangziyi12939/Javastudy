@@ -1,3 +1,5 @@
+package lesson08;
+
 class Counter {
     int count = 0;
 

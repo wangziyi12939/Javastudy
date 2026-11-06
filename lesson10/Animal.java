@@ -1,3 +1,5 @@
+package lesson10;
+
 public class Animal {
     // 父类「动物」：狗和猫都是动物，把共性的东西写在这里，子类就不用重复写。
     // name 是动物的名字，所有动物都有，所以放在父类。

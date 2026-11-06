@@ -1,3 +1,5 @@
+package lesson08;
+
 public class Main {
     public static void main(String[] args) {
         Student s = new Student("张三", 20, "清华");

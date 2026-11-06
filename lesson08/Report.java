@@ -1,3 +1,5 @@
+package lesson08;
+
 class Score {
     int total = 0;
     int rounds = 0;

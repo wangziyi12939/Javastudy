@@ -1,3 +1,5 @@
+package lesson07;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("=== 计算机测试 ===");

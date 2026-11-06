@@ -1,3 +1,5 @@
+package lesson06;
+
 public class ScoreStats{
     public static void main(String[] args) {
         int[] scores = {78, 45, 92, 60, 33};

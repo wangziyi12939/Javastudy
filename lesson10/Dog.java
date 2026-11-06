@@ -1,3 +1,5 @@
+package lesson10;
+
 public class Dog extends Animal {
     // extends = 继承：Dog 是 Animal 的一种，自动拥有 name 和 eat()。
 

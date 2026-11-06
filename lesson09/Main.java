@@ -1,3 +1,5 @@
+package lesson09;
+
 public class Main {
     public static void main(String[] args) {
         // 造两个账户对象：a 和 b 各是一份独立的数据（多对象互不影响）。

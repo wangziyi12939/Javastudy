@@ -1,3 +1,5 @@
+package lesson09;
+
 public class Account {
     // 字段：owner 是户主名，balance 是余额。
     // 前面加 private —— 封装第一条好处「藏」：外面不能直接 a.balance = 9999，只能走下面的方法。

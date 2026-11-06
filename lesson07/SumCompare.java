@@ -1,3 +1,5 @@
+package lesson07;
+
 // 对照实验：求 1 + 2 + ... + n
 // 甲 = 只用递归（正确）  乙 = 递归里再套 for（错误写法，不报错，答案错）
 public class SumCompare {

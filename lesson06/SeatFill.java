@@ -1,3 +1,5 @@
+package lesson06;
+
 public class SeatFill{
     public static void main(String[] args) {
         int[][] seats = new int [5][4];              // 5 行 4 列，元素初值 0

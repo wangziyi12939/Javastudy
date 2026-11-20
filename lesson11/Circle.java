@@ -9,7 +9,7 @@ package lesson11;
  * 类头顺序固定：先 extends，后 implements。
  * 实现接口的方法必须写 public，因为接口给的是 public，实现不许变窄。
  */
-public class Circle extends Shape implements Named, Printable {
+public class Circle extends Shape implements NamedShape, Printable {
 
     private double r;
 

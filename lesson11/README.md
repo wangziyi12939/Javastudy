@@ -2,14 +2,18 @@
 
 ## 文件
 
-| 文件 | 作用 |
-|---|---|
-| `Named.java` | 接口：能报名字。方法默认 `public abstract`，变量默认 `public static final` |
-| `Printable.java` | 接口：能打印自己。用来演示一个类实现多份能力清单 |
-| `Shape.java` | 抽象类：`abstract` 修饰类与方法各自限制什么，抽象类为何仍有构造器 |
-| `Circle.java` | 同时 `extends Shape` 与 `implements Named, Printable` |
-| `Student.java` | 只实现 `Named`，与 `Circle` 无血缘，用于验证接口的统合力 |
-| `Main.java` | 三段演示：接口数组、接口常量、同对象多面孔 |
+| 文件 | 作用 | 出处 |
+|---|---|---|
+| `Named.java` | 接口：能报名字。方法默认 `public abstract`，变量默认 `public static final` | 导师 2026-11-08 代写 |
+| `Printable.java` | 接口：能打印自己。用来演示一个类实现多份能力清单 | 导师 2026-11-08 代写 |
+| `Shape.java` | 抽象类：`abstract` 修饰类与方法各自限制什么，抽象类为何仍有构造器 | 导师 2026-11-08 代写 |
+| `Circle.java` | 同时 `extends Shape` 与 `implements Named, Printable` | 导师 2026-11-08 代写；学员后续补 `NamedShape` 到类头 |
+| `Student.java` | 只实现 `Named`，与 `Circle` 无血缘，用于验证接口的统合力 | 导师 2026-11-08 代写 |
+| `Main.java` | 三段演示：接口数组、接口常量、同对象多面孔 | 导师 2026-11-08 代写；学员 2026-11-19 补回 `report(list2)` 调用 |
+| `NamedShape.java` | 接口继承接口：在 `Named` 上加 `area()` | 学员自写 |
+| `Rect.java` | `extends Shape`，另一个实现 `NamedShape` 的形状 | 学员自写 |
+
+> 前六个文件是 2026-11-08 导师直接落盘的（C109 事故）。内容能编译能跑，但不是学员敲的。**每个都对照讲一遍：这个文件干什么、关键那几行是什么**，讲不出的当场重敲。
 
 ## 编译与运行
 
@@ -26,10 +30,14 @@ java -Dstdout.encoding=UTF-8 -cp out lesson11.Main
 圆形-红
 学生-2026001
 名字长度上限：20
-蓝的形状，面积 12.56
-圆形-蓝，面积 12.56
+蓝的形状，面积 28.259999999999998
+圆形-蓝，面积 28.259999999999998
 圆形-蓝
+圆形-蓝面积是12.56
+矩形-绿面积是6.0
 ```
+
+第三段把半径改成了 3.0，故面积是 `3.14 × 3.0 × 3.0 = 28.26`；末尾的 `28.259999999999998` 是 `double` 浮点误差。末两行仍为 12.56 / 6.0，因为 `list2` 里是另造的两个对象（半径 2.0），不是 `c`。
 
 ## 判据速查
 

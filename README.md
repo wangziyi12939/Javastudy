@@ -23,6 +23,7 @@ Java 学习代码库，零基础起步，目标为 2027 年下半年软考高级
 | 8 | 类与对象 | `lesson08` |
 | 9 | 封装、构造方法、this | `lesson09` |
 | 10 | 继承与多态 | `lesson10` |
+| 11 | 抽象类与接口 | `lesson11` |
 
 `lesson05` 从未使用，属历史编号空缺，保留以维持既有目录号稳定。
 
@@ -37,7 +38,7 @@ Java 学习代码库，零基础起步，目标为 2027 年下半年软考高级
 
 ## 用法
 
-所有源文件均声明与所在目录同名的 `package`（`lesson01` 至 `lesson10`）。编译时以 `-d out` 指定输出根目录，运行时以「包名.类名」指定主类：
+所有源文件均声明与所在目录同名的 `package`（`lesson01` 至 `lesson11`）。编译时以 `-d out` 指定输出根目录，运行时以「包名.类名」指定主类：
 
 ```bash
 javac -encoding UTF-8 -d out lesson10/*.java
@@ -72,6 +73,10 @@ java -Dstdout.encoding=UTF-8 -cp out lesson09.Main
 # lesson10：继承与多态
 javac -encoding UTF-8 -d out lesson10/*.java
 java -Dstdout.encoding=UTF-8 -cp out lesson10.Main
+
+# lesson11：抽象类与接口
+javac -encoding UTF-8 -d out lesson11/*.java
+java -Dstdout.encoding=UTF-8 -cp out lesson11.Main
 ```
 
 CI 逐课编译，完整步骤见 [`.github/workflows/java-ci.yml`](.github/workflows/java-ci.yml)。
